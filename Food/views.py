@@ -5,6 +5,7 @@ from django.http import HttpResponse
 from .models import item
 from django.template import loader
 # Create your views here.
+
 def index(request):
     allItems = item.objects.all()
     
