@@ -1,4 +1,4 @@
-{% load static %}
+{% extends 'Food/base.html' %} {% load static%}
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -6,17 +6,25 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Document</title>
-		<link rel="stylesheet" href="{% static 'Food/style.css' %}" />
+
+		<!-- CSS only -->
 	</head>
 	<body>
-		{% for item in allItems %}
-		<ul>
-			<li>
-				<a href="{% url 'food:detail' item.id %}">
-					{{ item.id }} {{item.item_name}}
+		{% block body %} {% for item in allItems %}
+		<div class="container">
+			<img class="image" height=" 200px" src="{{ item.item_image }}" />
+			<div class="details">
+				<h5>{{ item.item_name }}</h5>
+				<h6>{{ item.item_desc }}</h6>
+				<h4>$ {{ item.item_price }}</h4>
+			</div>
+
+			<div>
+				<a href="{% url 'food:detail' item.id %}" class="btn btn-success">
+					Details
 				</a>
-			</li>
-		</ul>
-		{% endfor %}
+			</div>
+		</div>
+		{% endfor %} {% endblock %}
 	</body>
 </html>
