@@ -15,11 +15,11 @@
 		<div id="header">
 			<div class="heading"><h2>Food App</h2></div>
 			<div id="flex">
-				<a class="no-link" href="#"> Add Item </a>
+				<a class="no-link" href="{% url 'food:add_item' %}"> Add Item </a>
 				<a class="no-link" href="#"> Delete Item </a>
 				<a class="no-link" href="#"> Edit Item </a>
 			</div>
 		</div>
-		{% block body%} {% endblock%}
+		{% block body %} {% endblock %}
 	</body>
 </html>
