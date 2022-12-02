@@ -4,7 +4,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from Food import templates
 from .registerForm import RegisterForm
-
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def register(request):
@@ -20,5 +20,8 @@ def register(request):
         form = RegisterForm()
     return render(request, 'user/register.html', {'form': form})
 
+@login_required
+def profilePage(request):
+    return render(request, 'user/profilePage.html')
 
 
